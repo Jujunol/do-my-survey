@@ -22,4 +22,4 @@ var schema = new mongoose.Schema({
     }
 });
 
-exports.User = mongoose.model('User', schema);
+exports.Survey = mongoose.model('Survey', schema);
