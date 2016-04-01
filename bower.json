@@ -1,0 +1,19 @@
+{
+  "name": "do-my-survey",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Wangzhetuteng <ericdicaprio@outlook.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Jujunol/do-my-survey",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ]
+}
