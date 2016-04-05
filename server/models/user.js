@@ -1,6 +1,7 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
 var mongoose = require("mongoose");
+var passportMongoose = require("passport-local-mongoose");
 
 var schema = new mongoose.Schema({
     username: String,
@@ -14,4 +15,6 @@ var schema = new mongoose.Schema({
     photoUri: String
 });
 
-exports.User = mongoose.model('User', schema);
+schema.plugin(passportMongoose);
+
+module.exports = mongoose.model('User', schema);

@@ -6,16 +6,16 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "serve-static/serve-static.d.ts": {
-      "commit": "e937b3e64af586d19f2ea29fdf771e9dc4feecc8"
+      "commit": "d969b903d1fce89a5e43828ec68458b4f852db4d"
     },
     "express/express.d.ts": {
-      "commit": "e937b3e64af586d19f2ea29fdf771e9dc4feecc8"
+      "commit": "d969b903d1fce89a5e43828ec68458b4f852db4d"
     },
     "body-parser/body-parser.d.ts": {
       "commit": "e937b3e64af586d19f2ea29fdf771e9dc4feecc8"
     },
     "mime/mime.d.ts": {
-      "commit": "e937b3e64af586d19f2ea29fdf771e9dc4feecc8"
+      "commit": "d969b903d1fce89a5e43828ec68458b4f852db4d"
     },
     "cookie-parser/cookie-parser.d.ts": {
       "commit": "e937b3e64af586d19f2ea29fdf771e9dc4feecc8"
@@ -24,10 +24,10 @@
       "commit": "e937b3e64af586d19f2ea29fdf771e9dc4feecc8"
     },
     "express-serve-static-core/express-serve-static-core.d.ts": {
-      "commit": "e937b3e64af586d19f2ea29fdf771e9dc4feecc8"
+      "commit": "d969b903d1fce89a5e43828ec68458b4f852db4d"
     },
     "node/node.d.ts": {
-      "commit": "e937b3e64af586d19f2ea29fdf771e9dc4feecc8"
+      "commit": "d969b903d1fce89a5e43828ec68458b4f852db4d"
     },
     "mongoose/mongoose.d.ts": {
       "commit": "e937b3e64af586d19f2ea29fdf771e9dc4feecc8"
@@ -40,6 +40,12 @@
     },
     "ejs/ejs.d.ts": {
       "commit": "e937b3e64af586d19f2ea29fdf771e9dc4feecc8"
+    },
+    "passport-local/passport-local.d.ts": {
+      "commit": "d969b903d1fce89a5e43828ec68458b4f852db4d"
+    },
+    "passport/passport.d.ts": {
+      "commit": "d969b903d1fce89a5e43828ec68458b4f852db4d"
     }
   }
 }
