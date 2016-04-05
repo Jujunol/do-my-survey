@@ -47,7 +47,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Setup static routing
-app.use('/scripts', express.static(path.join(__dirname, 'public')));
+app.use('/scripts', express.static(path.join(path.dirname(__dirname), 'public')));
 app.use('/lib', express.static(path.join(path.dirname(__dirname), 'lib')));
 
 // Setup routing
