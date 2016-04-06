@@ -7,28 +7,32 @@ var User = require('../models/user');
 var router = express.Router();
 
 router.get('/login', function(req, res) {
+    if(req.user) {
+        res.redirect('/survey');
+    }
     res.render('login', {
-        title: 'Existing User',
-        user: req.user
+        title: 'Existing User'
     });
 });
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/home',
+    successRedirect: '/survey',
     failureRedirect: '/login'
 }));
 
-router.get('/register', function(req, res) {
-    res.render('register', {
-        title: 'Create a new Account',
-        user: req.user
-    })
+router.get('/signup', function(req, res) {
+    if(req.user) {
+        res.redirect('/survey');
+    }
+    res.render('signup', {
+        title: 'Create a new Account'
+    });
 });
 
-router.post('/register', function(req, res) {
+router.post('/signup', function(req, res) {
     User.register(new User({ username: req.body.username }), req.body.password, function(err, user) {
         if(err) {
-            return res.render('register', { user: user });
+            return res.render('signup', { user: user });
         }
         
         // use passport.authenicate if don't want them to login after register
@@ -36,7 +40,7 @@ router.post('/register', function(req, res) {
     });
 });
 
-router.post('/logout', function(req, res) {
+router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
 })

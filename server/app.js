@@ -41,7 +41,7 @@ app.use(cookieParser());
 app.use(require('express-session')({
     secret: "MonSecret",
     resave: true,
-    saveUnitialized: false
+    saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
