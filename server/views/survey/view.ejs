@@ -4,15 +4,21 @@
 <div class="container" style="background-color: #FFF; opacity: 1">
     <div class="page-header">
         <h1>Do my Survey</h1>
+            <div class="col-md-8 col-md-offset-2 jumbotron" style="border: 3px solid rgba(0, 0, 0, 0.35); margin-top: 100px;">
+         <table class="table table-striped table-hover">
     </div>
     <form method="POST">
-        Question 1: <input type="text" name="response" /><br>
-        Question 2: <input type="text" name="response" /><br>
-        Question 3: <input type="text" name="response" /><br>
-        Question 4: <input type="text" name="response" /><br>
-        Question 5: <input type="text" name="response" /><br>
+        <tr>
+        <% for (var i = 0; i < survey.questions.length; i++) { %> 
+        </br>
+            <%= survey.questions[i].name %> : <input type="text" name="response" /><br>
+        <% } %>
+        </tr>
+        </br>
         <button type="submit">Create</button>
     </form>
+    </table>
+</div>
 </div>
 <!-- /container -->
 
