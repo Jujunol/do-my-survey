@@ -13,8 +13,8 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
-
-var users = require('./routes/users');
+var surveys = require('./routes/surveys');
+// var users = require('./routes/users');
 
 var app = express();
 
@@ -53,6 +53,7 @@ app.use('/lib', express.static(path.join(path.dirname(__dirname), 'lib')));
 // Setup routing
 app.use('/', routes);
 app.use('/', auth);
+app.use('/survey', surveys);
 
 // Passport configuration
 var userModel = require('./models/user');

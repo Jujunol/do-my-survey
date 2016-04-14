@@ -9,17 +9,18 @@ var schema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    questions: {
-        question: {
+    questions: [
+        {
             name: String,
-            responses: {
-                response: {
+            responses: [
+                {
                     username: String,
                     reply: String
                 }
-            }
+            ]
         }
-    }
+    ]
 });
 
-exports.Survey = mongoose.model('Survey', schema);
+module.exports = mongoose.model('Survey', schema);
+// exports.Survey = mongoose.model('Survey', schema);
