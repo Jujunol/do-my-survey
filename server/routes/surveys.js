@@ -34,9 +34,9 @@ router.post('/create', function(req, res, next) {
     if(!req.user) res.redirect("/");
     
     // check if the survey already exists
-    Survey.find({ surveyName: req.body.surveyName }, function(error, survey) {
+    Survey.find({ surveyName: req.body.surveyName }, function(error, surveys) {
         // exit if a survey with the same name
-        if(survey) { 
+        if(surveys.length > 0) { 
             res.redirect('back');
             res.end();
             return;
