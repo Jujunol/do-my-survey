@@ -102,6 +102,42 @@ router.post('/:name', function(req, res, next) {
             res.redirect("/survey");
             res.end();
         }
+        
+        var survey = surveys[0];
+        for(var i = 0; i < req.body.response.length && i < survey.questions.length; i++) {
+            var response = req.body.response[i];
+            
+            if(response.trim() == "") continue;
+            
+            survey.questions[i].responses.push({
+                username: (req.user ? req.user.username : null),
+                reply: response
+            });
+           
+            // var responseIndex = "questions[" + i + "].responses"; 
+            // Survey.update({ _id : survey._id }, {
+            //     "$push" : { responseIndex : {
+            //         username: (req.user ? req.user.username : null),
+            //         reply: response
+            //     } }
+            // }, function(error, survey) {
+            //     if(error) {
+            //         console.log(error);
+            //     }
+            //     console.log(survey);
+            // });
+        }
+        
+        Survey.update({ _id : survey._id }, {
+            questions: survey.questions
+        }, function(error, numberOfRows) {
+            if(error) {
+                console.log(error);
+            }
+            console.log(numberOfRows);
+            console.log(survey);
+        });
+        res.redirect("/survey");
     });
 });
 
@@ -116,7 +152,6 @@ router.get('/:name/delete', function(req, res) {
             console.log(error);
             res.end(error);
         }
-        console.log(surveys);
         if(surveys.length != 1) {
             res.redirect("/survey");
             res.end();
