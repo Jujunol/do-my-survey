@@ -1,8 +1,41 @@
 <% include partials/header.ejs %>
+<div class="background-cover">
+     <img src="/scripts/images/background.jpg" />
+ </div>
+<br>
+<br>
+<div class="col-md-1">
+  <ul class="nav nav-pills nav-stacked">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <li class="active"><a href="#">John Horne</a></li>
+    <br>
+    <li class ="active"><a href="#">Yuji Fujiyama</a></li>
+    <br>
+     <li class ="active"><a href="#">Sakib Patel</a></li>
+     <br>
+     <li class ="active"><a href="#">Eric Wang</a></li>
+</ul>
+</div>
+<style>
+h1 {
+    text-shadow: 2px 2px aqua;
+}
+</style>
 
+</div>
+
+
+<!--For Main Content Jumbotron-->
+ 
 <div class="container">
     <div class="col-md-8 col-md-offset-2 jumbotron" style="border: 3px solid rgba(0, 0, 0, 0.35); margin-top: 100px;">
+        
         <div class="row">
+            
             <div class="page-header text-center" style="border-bottom: 2px solid #CCC">
                 <h1>Do My Survey</h1>
             </div>
@@ -12,13 +45,23 @@
             </div>
             <div class="col-md-4 ">
                 <a href="/login" class="btn btn-lg btn-primary btn-block">Login</a>
-            </div>
+            </div>  
             <div class="col-md-4">
                 <a href="/signup" class="btn btn-lg btn-primary btn-block">Sign Up</a>
             </div>
+            
         </div>
+        
     </div>
-</div>
+
+<!--<img src="scripts/images/homepage.jpg" alt="Survey" style="float:right;width:180px;height:240px; margin-top: 130px;"> 
+Trying to add the image on the right but not really working-->
+
+<center><div class="fb-like" 
+        data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" 
+data-action="like" data-show-faces="true" data-share="true"></div></center>
+
+
 <!-- /container -->
 
 <% include partials/footer.ejs %>

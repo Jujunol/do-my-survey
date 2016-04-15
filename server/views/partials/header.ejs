@@ -16,8 +16,19 @@
     
     <!-- JavaScript Section -->
     <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
-    
-    <style>
+ 
+ <!--For Facebook Plugin -->   
+        <body>
+            <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        </body>
+      <style>
     .background-cover { 
         z-index: -1;
         position: fixed;
@@ -27,11 +38,11 @@
     
     .background-cover img {
         width: 100%;
-        opacity: 0.25;
+        opacity: 0.60;
     }
-    </style>    
+    </style> 
+    
 </head>
 <body>
-    <div class="background-cover">
-        <img src="/scripts/images/background.jpg" />
-    </div>
+    
+    <marquee><b>Hope You Like Our Website</b></marquee>

@@ -1,22 +1,46 @@
 <% include ../partials/header.ejs %>
 <% include ../partials/navbar.ejs %>
-
-<div class="container" style="background-color: #FFF; opacity: 1">
+<div class="background-cover">
+     <img src="/scripts/images/b3.jpg" />
+ </div>
+<!--<div class="container" style="background-color: #FFF; opacity: 1">-->
     <div class="page-header">
-        <h1>Do my Survey</h1>
+        <h1>Create Your Survey</h1>
     </div>
+     <table class="table table-striped table-hover">
     <form method="POST">
-        Name: <input type="text" name="surveyName" /><br>
-        <br>
-        Question 1: <input type="text" name="question" /><br>
-        Question 2: <input type="text" name="question" /><br>
-        Question 3: <input type="text" name="question" /><br>
-        Question 4: <input type="text" name="question" /><br>
-        Question 5: <input type="text" name="question" /><br>
-        <br>
-        <button type="submit">Create</button>
+        <tr>
+        <td><b>Survey Name:</b> <input type="text" name="surveyName" /><br></td>
+        </tr>
+        <tr>
+        <td><b>Question 1:</b> <input type="text" name="question" /><br></td>
+        </tr>
+        <tr>
+        <td><b>Question 2:</b> <input type="text" name="question" /><br></td>
+        </tr>
+        <tr>
+        <td><b>Question 3:</b> <input type="text" name="question" /><br></td>
+        </tr>
+        <tr>
+        <td><b>Question 4:</b> <input type="text" name="question" /><br></td>
+        </tr>
+        <tr>
+        <td><b>Question 5:</b> <input type="text" name="question" /><br></td>
+        </tr>
+        </table>
+        
+       <style>
+           td{
+               text-align: center;
+           }
+           </style>
+        
+        
+        <center><button type="submit"><b>Create</b></button></center>
+       
+       
     </form>
 </div>
 <!-- /container -->
 
-<% include ../partials/footer.ejs %>
+<!--<% include ../partials/footer.ejs %>-->

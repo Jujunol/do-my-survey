@@ -17,9 +17,9 @@
 
                 <li><a href="/survey"><i class="fa fa-home fa-2x"></i>  Home</a></li>
                 <% if (user) { %>
-                    <li><a href="/user/<%= user.username %>">My Account</a></li>
-                    <li><a href="/survey/create">Create Survey</a></li>
-                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="/survey/user<%= user.username %>"><i class="fa fa-user-secret fa-2x" aria-hidden="true"></i>My Account</a></li>
+                    <li><a href="/survey/create"><i class="fa fa-plus fa-2x"  aria-hidden="true"></i>Create Survey</a></li>
+                    <li><a href="/logout"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>Logout</a></li>
                 <% } else { %>
                     <li><a href="/login"><i class="fa fa-sign-in fa-2x"></i>  Login</a></li>
                     <li><a href="/signup"><i class="fa fa-user-plus fa-2x"></i>  Sign Up </a></li>

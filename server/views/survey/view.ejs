@@ -1,12 +1,15 @@
 <% include ../partials/header.ejs %>
 <% include ../partials/navbar.ejs %>
-
-<div class="container" style="background-color: #FFF; opacity: 1">
+<div class="background-cover">
+     <img src="/scripts/images/b2.jpg" />
+ </div>
+<div class="container" style="background-color: #ffffff; opacity: .9">
     <div class="page-header">
-        <h1>Do my Survey</h1>
+        <h1>Answer Your Questions</h1>
             <div class="col-md-8 col-md-offset-2 jumbotron" style="border: 3px solid rgba(0, 0, 0, 0.35); margin-top: 100px;">
          <table class="table table-striped table-hover">
     </div>
+    
     <form method="POST">
         <tr>
         <% for (var i = 0; i < survey.questions.length; i++) { %> 
@@ -22,4 +25,4 @@
 </div>
 <!-- /container -->
 
-<% include ../partials/footer.ejs %>
+<!--<% include ../partials/footer.ejs %>-->
