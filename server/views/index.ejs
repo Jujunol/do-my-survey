@@ -1,66 +1,49 @@
 <% include partials/header.ejs %>
+<link rel="stylesheet" href="/scripts/css/client-index.css" />
 <div class="background-cover">
      <img src="/scripts/images/background.jpg" />
- </div>
-<br>
-<br>
-<div class="col-md-1">
-  <ul class="nav nav-pills nav-stacked">
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-    <li class="active"><a href="#">John Horne</a></li>
-    <br>
-    <li class ="active"><a href="#">Yuji Fujiyama</a></li>
-    <br>
-     <li class ="active"><a href="#">Sakib Patel</a></li>
-     <br>
-     <li class ="active"><a href="#">Eric Wang</a></li>
-</ul>
-</div>
-<style>
-h1 {
-    text-shadow: 2px 2px aqua;
-}
-</style>
-
 </div>
 
-
-<!--For Main Content Jumbotron-->
- 
-<div class="container">
-    <div class="col-md-8 col-md-offset-2 jumbotron" style="border: 3px solid rgba(0, 0, 0, 0.35); margin-top: 100px;">
-        
-        <div class="row">
-            
-            <div class="page-header text-center" style="border-bottom: 2px solid #CCC">
-                <h1>Do My Survey</h1>
-            </div>
-            <br>
-            <div class="col-md-4">
-                <a href="/survey" class="btn btn-lg btn-primary btn-block">Guests</a>
-            </div>
-            <div class="col-md-4 ">
-                <a href="/login" class="btn btn-lg btn-primary btn-block">Login</a>
-            </div>  
-            <div class="col-md-4">
-                <a href="/signup" class="btn btn-lg btn-primary btn-block">Sign Up</a>
-            </div>
-            
+<div id="nav-wrapper">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <a class="btn btn-login btn-lg nav-btn pull-right" href="/signup" role="button">Sign Up</a>
+            <a class="btn btn-login btn-lg nav-btn pull-right" href="/login" role="button">Login</a>
+            <div class="clearfix"></div>
         </div>
-        
+    </nav>
+</div>
+<div id="logo" style="width:50%;">
+    <a href="#"><img src="/scripts/images/logo-landing.png" alt="Logo" style="width:222px; height:184px;"></a>
+</div>
+
+<!--<div class="page-header">-->
+    <h1>Do My Survey</h1>
+<!--</div>-->
+
+<div class="container">
+    <div class="row text-center" style="min-width: 100%;">
+        <div id="Create" class="col-md-4 col-max">
+            <h3>Create</h3>
+            <hr>
+            <p>Want to create a new Survey but don't have an account? Then signup and create your survey for free!</p>
+            <a id="CreateButton" class="btn btn-login btn-md col-sm-11" href="/signup" role="button">Login</a>
+        </div>
+        <div id="Answer" class="col-md-4 col-centered col-max">
+            <h3>Answer</h3>
+            <hr>
+            <p>Don't have an account but want to answer some surveys?</p>
+            <a id="AnswerButton" class="btn btn-login btn-md col-sm-11" href="/survey" role="button">Login as Guest</a>
+        </div>
+        <div id="Review" class="col-md-4 col-centered col-max">
+            <h3>Statistics</h3>
+            <hr>
+            <p>Want to review the responses for your survey?</p>
+            <a id="Statistics" class="btn btn-login btn-md col-sm-11" href="/login" role="button">Login</a>
+        </div>
     </div>
-
-<!--<img src="scripts/images/homepage.jpg" alt="Survey" style="float:right;width:180px;height:240px; margin-top: 130px;"> 
-Trying to add the image on the right but not really working-->
-
-<center><div class="fb-like" 
-        data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" 
-data-action="like" data-show-faces="true" data-share="true"></div></center>
-
+</div>
+<center><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></center>
 
 <!-- /container -->
 

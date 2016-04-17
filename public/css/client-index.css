@@ -1,0 +1,83 @@
+.btn-login {
+    background: #337ab7;
+    color: #FFFFFF;
+    transition: all 0.3s ease 0s;
+    box-shadow: 0 3px 0 0 #2e6da4;
+    border-left-color: #2e6da4;
+    border-right-color: #2e6da4;
+    font-size: 15px;
+    margin: 10px;
+}
+
+.btn-login:hover {
+    background: #286090;
+    color: #FFFFFF;
+    box-shadow: 0 3px 0 0 #204d74;
+    border-left-color: #204d74;
+    border-right-color: #204d74;
+}
+
+#logo {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    margin-top: -85px;
+    margin-left: 25%;
+}
+
+#nav-wrapper {
+    position: relative;
+}
+
+.clearfix {
+    width: 100%;
+    display: block;
+    visibility: none;
+}
+
+h1 {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    margin-top: 95px;
+    font-size: 80px;
+    font-family: "Impact", Charcoal, sans-serif;
+    word-spacing: 10px;
+}
+
+#body {
+    width: 200px;
+    height: 20px;
+}
+#body hr {
+    border: 1px solid #DCDCDC;
+    position: absolute;
+    width: 100%;
+    margin-top: 215px;
+}
+
+#Create, #Answer, #Review {
+    background: #FFF;
+    font-family: "Impact", Charcoal, sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: 3px solid #DCDCDC;
+    margin-top: 215px;
+    height: 400px;
+    text-align: left;
+    position: relative;
+}
+
+#Answer, #Review {
+    border-left: 0;
+}
+
+#AnswerButton, #Statistics, #CreateButton {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /*margin-left: 0;*/
+}
+
+#Answer p, #Review p, #Create p {
+    color: #A9A9A9;
+}
