@@ -1,0 +1,17 @@
+<div id="nav-wrapper">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            
+            <% if(!user) { %>
+                <a class="btn btn-login btn-lg nav-btn pull-right" href="/signup" role="button">Sign Up</a>
+                <a class="btn btn-login btn-lg nav-btn pull-right" href="/login" role="button">Login</a>
+            <% } else { %>
+                <a class="btn btn-login btn-lg nav-btn pull-right" href="/logout" role="button">Logout</a>
+            <% } %>
+            <div class="clearfix"></div>
+        </div>
+    </nav>
+</div>
+<div id="logo" style="width:50%;">
+    <a href="#"><img src="/scripts/images/logo-landing.png" alt="Logo" style="width:222px; height:184px;"></a>
+</div>

@@ -9,7 +9,15 @@ router.get('/', function(req, res) {
         res.redirect('/survey');
     }
     res.render('index', { 
-        title: 'Do My Survey'
+        title: 'Do My Survey',
+        user: req.user
+    });
+});
+
+router.get('/dashboard', function(req, res) {
+    res.render('dashboard', { 
+        title: 'Dashboard - Do My Survey',
+        user: req.user
     });
 });
 

@@ -4,38 +4,25 @@
      <img src="/scripts/images/background.jpg" />
 </div>
 
-<div id="nav-wrapper">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <a class="btn btn-login btn-lg nav-btn pull-right" href="/signup" role="button">Sign Up</a>
-            <a class="btn btn-login btn-lg nav-btn pull-right" href="/login" role="button">Login</a>
-            <div class="clearfix"></div>
-        </div>
-    </nav>
-</div>
-<div id="logo" style="width:50%;">
-    <a href="#"><img src="/scripts/images/logo-landing.png" alt="Logo" style="width:222px; height:184px;"></a>
-</div>
+<% include partials/nav-light.ejs %>
 
-<!--<div class="page-header">-->
-    <h1>Do My Survey</h1>
-<!--</div>-->
+<h1>Do My Survey</h1>
 
-<div class="container">
+<div class="container" style="margin-top: 215px;">
     <div class="row text-center" style="min-width: 100%;">
-        <div id="Create" class="col-md-4 col-max">
+        <div class="col-md-4 col-max gridbox-3">
             <h3>Create</h3>
             <hr>
             <p>Want to create a new Survey but don't have an account? Then signup and create your survey for free!</p>
             <a id="CreateButton" class="btn btn-login btn-md col-sm-11" href="/signup" role="button">Login</a>
         </div>
-        <div id="Answer" class="col-md-4 col-centered col-max">
+        <div class="col-md-4 col-centered col-max gridbox-3">
             <h3>Answer</h3>
             <hr>
             <p>Don't have an account but want to answer some surveys?</p>
             <a id="AnswerButton" class="btn btn-login btn-md col-sm-11" href="/survey" role="button">Login as Guest</a>
         </div>
-        <div id="Review" class="col-md-4 col-centered col-max">
+        <div class="col-md-4 col-centered col-max gridbox-3">
             <h3>Statistics</h3>
             <hr>
             <p>Want to review the responses for your survey?</p>
