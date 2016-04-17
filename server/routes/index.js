@@ -15,6 +15,9 @@ router.get('/', function(req, res) {
 });
 
 router.get('/dashboard', function(req, res) {
+    if(!req.user) {
+        res.redirect('/');
+    }
     res.render('dashboard', { 
         title: 'Dashboard - Do My Survey',
         user: req.user
