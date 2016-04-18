@@ -8,7 +8,7 @@ var router = express.Router();
 
 router.get('/login', function(req, res) {
     if(req.user) {
-        res.redirect('/survey');
+        res.redirect('/dashboard');
     }
     res.render('login', {
         title: 'Existing User'
@@ -16,13 +16,13 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/survey',
+    successRedirect: '/dashboard',
     failureRedirect: '/login'
 }));
 
 router.get('/signup', function(req, res) {
     if(req.user) {
-        res.redirect('/survey');
+        res.redirect('/dashboard');
     }
     res.render('signup', {
         title: 'Create a new Account'
