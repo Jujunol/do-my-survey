@@ -1,0 +1,44 @@
+<% include partials/header.ejs %>
+<% include ../partials/navbar.ejs %>
+<div class="background-cover">
+     <img src="/scripts/images/white_wallpaper.jpg" />
+ </div>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+
+<div class="container" style="background-color: #fofiff; opacity: .7" />
+  <div class="page-header">
+    <h1>Edit Your Profile!</h1>      
+  </div>
+ <div class="col-md-8 col-md-offset-2 jumbotron" style="border: 3px solid rgba(0, 0, 0, 0.35); margin-top: 100px;">        
+ 		<form method="post">
+                <fieldset class="form-group">
+                    <label for="username">Username: *</label>
+                    <input name="username" class="form-control" required value="<%= user.username %>" />
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="password">Password: *</label>
+                    <input name="password" class="form-control"  required value="<%= user.password %>" />
+                </fieldset>
+                <fieldset class="form-group text-right">
+                    <button type="submit" class="btn btn-success">Submit Profile</button>
+                    <a href="/users/delete/<%= user._id %>" title="Delete" onclick="return confirm('Are you sure you want to delete your profile?');">
+                        <button type="button" class="btn btn-danger">Delete Profile</button>
+                    </a>
+                    <a href="/users">
+                        <input type="button" class="btn btn-warning" value="Cancel"/>
+                    </a>
+                </fieldset>
+            </form>  
+</div>
+</div>
+</body>
+</html>
+
+<% include partials/footer.ejs %>
