@@ -2,6 +2,7 @@
 
 var express = require('express');
 var Survey = require('../models/survey');
+var User = require('../models/user');
 
 var router = express.Router();
 
@@ -72,6 +73,25 @@ router.post('/create', function(req, res, next) {
     });
 });
 
+// show the 'results' ... I guess
+router.get('/reports', function(req, res, next) {
+    if(!req.user) {
+        res.redirect("/survey");
+        res.end();
+    }
+    Survey.find({ creator : req.user.username }, function(err, surveys) {
+        if(err) {
+            console.log(err);
+            res.end(err);
+        }
+        res.render('survey/reports', {
+            title: 'Reports - Do My Survey', 
+            user: req.user,
+            surveys: surveys
+        });
+    });
+});
+
 router.get('/:name', function(req, res, next) {
     Survey.find({ surveyName: req.params.name }, function(error, surveys) {
         if(error) {
@@ -137,6 +157,13 @@ router.post('/:name', function(req, res, next) {
             console.log(numberOfRows);
             console.log(survey);
         });
+        
+        if(req.user) {
+            User.findByIdAndUpdate(req.user._id, {
+                "$push" : { recentSurveys : survey.surveyName }
+            });
+        }
+        
         res.redirect("/survey");
     });
 });

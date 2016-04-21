@@ -12,19 +12,19 @@
         <div class="panel panel-default col-sm-4 gridpanel">
             Active Surveys
             <div class="circle" style="border-color: #3FCE3F">
-                <span>2</span>
+                <span><%= activeSurveyCount %></span>
             </div>
         </div>
         <div class="panel panel-default col-sm-4 gridpanel">
             Closed Surveys
             <div class="circle" style="border-color: #FF9999">
-                <span>7</span>
+                <span><%= closedSurveyCount %></span>
             </div>
         </div>
         <div class="panel panel-default col-sm-4 gridpanel">
             Total Created Surveys
             <div class="circle" style="border-color: blue">
-                <span>9</span>
+                <span><%= totalSurveyCount %></span>
             </div>
         </div>
     </div>
@@ -34,18 +34,12 @@
             <div class="panel-heading">Your Surveys</div>
             <div class="panel-body">
                 <ul class="list-group">
-                    <li class="list-group-item">
-                        <span class="badge">14</span>
-                        Do you like cats?
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge">4</span>
-                        Y-a-t-il un chat français?
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge">0</span>
-                        Georgian College
-                    </li>
+                    <% for(var i = 0; i < surveys.length; i++) { %>
+                        <li class="list-group-item">
+                            <span class="badge"><%= surveys[i].questions[0].responses.length %></span>
+                            <a href="/survey/<%= surveys[i].surveyName %>"><%= surveys[i].surveyName %></a>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
@@ -55,8 +49,11 @@
             <div class="panel-heading">Recent Taken Surveys</div>
             <div class="panel-body">
                 <ul class="list-group">
-                    <li class="list-group-item">Do you like cats?</li>
-                    <li class="list-group-item">Y-a-t-il un chat français?</li>
+                    <% for(var i = 0; i < user.recentSurveys.length; i++) { %>
+                        <li class="list-group-item">
+                            <a href="/survey/<%= user.recentSurveys[i] %>"><%= user.recentSurveys[i] %></a>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
