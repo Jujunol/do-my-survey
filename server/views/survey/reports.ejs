@@ -13,7 +13,7 @@
         <% } %>
     </div>
     
-    <center><p><b>Hey <%= user.username %>,These are a list of Surveys you have created up to date!</b></p></center>
+    <center><p><b>Hey <%= user.username %>,View, Edit, or Delete Your Answers</b></p></center>
 
 
 <div class="col-md-6 col-md-offset-3 jumbotron" style="border: 2px solid rgba(0, 0, 0, 0.35); margin-top: 20px;">
@@ -23,13 +23,17 @@
       <tr>
          <th>Survey Title</th>
             
-         <th>Created Date</th>
+         <th>Your Answers</th>
      </tr>
         <% for(var i = 0; i < surveys.length; i++) { %>
         <tr>
              <td><a href="/survey/<%= surveys[i].surveyName %>"><%= surveys[i].surveyName %></a></td>
-             <!--<td><%= surveys[i].responses %></td>-->
+             
              <td><%= surveys[i].created.toDateString() %></td>
+             
+             <td><a href="/survey/delete/<%= surveys._id %>" title="Delete" onclick="return confirm('Are you sure you want to delete this?');">
+                    <button type="button" class="btn btn-danger">Delete</button>
+             </td>
        </tr>
        <% } %>
        

@@ -11,11 +11,13 @@
         <tr>
         <% for (var i = 0; i < survey.questions.length; i++) { %> 
         </br>
-            <%= survey.questions[i].name %> : <input type="text" name="response" /><br>
+            <%= survey.questions[i].name %> : 
+        </br>    
+            <input type="text" name="response" /><br>
         <% } %>
         </tr>
         </br>
-       <button type="submit" class="btn btn-primary">Create!</button>
+       <button type="submit" class="btn btn-primary">Submit My Answers</button>
     </form>
 </div>
 </div>
