@@ -1,6 +1,8 @@
 <% include ../partials/header.ejs %>
 <% include ../partials/navbar.ejs %>
 
+     
+ 
 
  <div class="background-cover">
      <img src="/scripts/images/b.jpg" />
@@ -14,6 +16,8 @@
             <h3>Welcome <%= user.username %>!</h3>
         <% } %>
     </div>
+<center><p><b>Hi there <%= user.username %>, Choose any survey you would like to answer, or create one of your own for free!</b></p></center>
+<div class="col-md-8 col-md-offset-2 jumbotron" style="border: 2px solid rgba(0, 0, 0, 0.35); margin-top: 20px;">
     <table class="table table-striped table-hover" style="background: #FFF;">
         <tr>
             <th>Survey</th>
@@ -27,8 +31,10 @@
                 <td><%= surveys[i].created.toDateString() %></td>
             </tr>
         <% } %>
+        </div>
     </table>
-</div>
+
 <!-- /container -->
+
 
 <% include ../partials/footer.ejs %>

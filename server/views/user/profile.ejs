@@ -1,34 +1,35 @@
 <% include ../partials/header.ejs %>
 <% include ../partials/navbar.ejs %>
+
 <div class="background-cover">
      <img src="/scripts/images/white_wallpaper.jpg" />
 </div>
 
-<div class="container" style="background-color: #fofiff; opacity: .7" />
+<div class="container" style="background-color: #fofiff; opacity: 1" />
   <div class="page-header">
     <h1>Edit Your Profile!</h1>      
-  </div>
- <div class="col-md-8 col-md-offset-2 jumbotron" style="border: 3px solid rgba(0, 0, 0, 0.35); margin-top: 100px;">        
+</div>
+ <div class="col-md-8 col-md-offset-2 jumbotron" style="border: 3px solid rgba(0, 0, 0, 0.35); margin-top: 50px;">        
  		<form method="post">
                 <fieldset class="form-group">
                     <label for="username">Username: *</label>
-                    <input name="username" class="form-control" readonly value="<%= user.username %>" />
+                    <input name="username" class="form-control" value="<%= user.username %>" />
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="password">Password: *</label>
                     <input name="password" class="form-control" required />
-                </fieldset>
-                <fieldset class="form-group text-right">
-                    <button type="submit" class="btn btn-success">Submit Profile</button>
+                  </fieldset>
+                    <fieldset class="form-group text-right">
+                    <button type="submit" class="btn btn-success">Update Profile</button>
                     <a href="/user/<%= user._id %>/delete/" title="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete your profile?');">
                         Delete Profile
                     </a>
-                    <a href="/users" class="btn btn-warning" value="Cancel" />
-                </fieldset>
-            </form>  
-</div>
-</div>
-</body>
+                    <button type="submit" class="btn btn-warning">Discard Changes</button>
+                  </fieldset>
+              </form>  
+          </div>
+       </div>
+   </body>
 </html>
 
 <% include ../partials/footer.ejs %>
