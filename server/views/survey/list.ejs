@@ -1,0 +1,27 @@
+<% include ../partials/header.ejs %>
+<% include ../partials/navbar.ejs %>
+
+
+ <div class="background-cover">
+     <img src="/scripts/images/b.jpg" />
+ </div>
+
+
+<table class="table table-striped table-hover" style="background: #FFF;">
+        <tr>
+            <th>Survey Questions</th>
+                 <th>Survey Answers</th>
+			<th>Survey Date</th>
+        </tr>
+        <% for(var i = 0; i < surveys.length; i++) { %>
+            <tr>
+                <td><a href="/survey/<%= surveys[i].surveyName %>"><%= surveys[i].surveyName %></a></td>
+                   <td><%= surveys[i].response %></td>
+                <td><%= surveys[i].created.toDateString() %></td>
+           </tr>
+      <% } %>
+ </table>
+ 
+ <!--container-->
+	
+<% include ../partials/footer.ejs %>
