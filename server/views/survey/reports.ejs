@@ -5,18 +5,46 @@
  <div class="background-cover">
      <img src="/scripts/images/b.jpg" />
  </div>
+ 
+  <div class="col-md-3">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+        <div class="panel panel-default">
+ 
+            <div class="panel-heading"><b>Recent Surveyers<b></div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <% for(var i = 0; i < surveys.length; i++) { %>
+                        <li class="list-group-item">
+                            <a href="/survey/index/<%= surveys[i].creator %>"><%= surveys[i].creator %></a>
+                            <a href="/survey/index/<%= surveys[i].created.toDateString() %>">Active on <%= surveys[i].created.toDateString() %></a>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
    
     <div class="page-header">
-        <h1>View My Surveys!</h1>
+        <h1>View My Reports!</h1>
         <% if(user) { %>
-            <h3>Welcome <%= user.username %>!</h3>
+            <h3>How's it going <%= user.username %>?</h3>
         <% } %>
     </div>
     
-    <center><p><b>Hey <%= user.username %>...View, Edit, or Delete Your Answers</b></p></center>
+    <center><p><h3><b>View Stats, Edit, or Delete Your Answers!</b></h3></center>
 
 
-<div class="col-md-6 col-md-offset-3 jumbotron" style="border: 2px solid rgba(0, 0, 0, 0.35); margin-top: 20px;">
+<div class="col-md-6 col-md-offset-1 jumbotron" style="border: 2px solid rgba(0, 0, 0, 0.35); margin-top: 20px;">
     <img src="/scripts/images/pen.jpg" alt="Your Surveys" style="float:left;width:640px;height:100px;">
       <div class="panel panel-default">
     
@@ -40,6 +68,24 @@
        
  </table>
  </div> 
+ 
+  <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">How Many People Took Your Survey?</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <% for(var i = 0; i < surveys.length; i++) { %>
+                        <li class="list-group-item">
+                            <span class="badge"><%= surveys[i].questions[0].responses.length %></span>
+                            <a href="/survey/<%= surveys[i].surveyName %>"><%= surveys[i].surveyName %></a>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
   <p><b>Your Impact Up to Date!</b></p> 
   
   <div class="progress">
@@ -65,6 +111,9 @@
 	 35% (Surveys Deleted)
  </div>
 </div>
+
+
+
 
 <!-- /container -->    
 <% include ../partials/footer.ejs %>
