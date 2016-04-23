@@ -24,12 +24,12 @@ router.get('/dashboard', function(req, res) {
             console.log(err);
             res.end(err);
         }
-        // Surveys only last for the month, then they're closed
-        var oneMonth = 1000 * 60 * 60 * 24 * 30; //ms - s - m - h - d
+        // Surveys only last for the month, then they're closed - before update
+        // var oneMonth = 1000 * 60 * 60 * 24 * 30; //ms - s - m - h - d
         var activeSurvey = 0, closedSurvey = 0;
         if(surveys) {
             for(var i = 0; i < surveys.length; i++) {
-                if((new Date() - new Date(surveys[i].created)) < oneMonth) activeSurvey++;
+                if((new Date() - surveys[i].closeDate) <= 0) activeSurvey++;
                 else closedSurvey++;
             }
         }

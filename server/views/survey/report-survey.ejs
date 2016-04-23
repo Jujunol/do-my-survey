@@ -1,0 +1,48 @@
+<% include ../partials/header.ejs %>
+<% include ../partials/navbar.ejs %>
+
+
+ <div class="background-cover">
+     <img src="/scripts/images/b.jpg" />
+ </div>
+    
+   
+    <div class="page-header">
+        <h1>Report</h1>
+        <h3><%= survey.surveyName %></h3>
+    </div>
+    
+    <center><p><h3><b>View Stats, Edit, or Delete Your Answers!</b></h3></center>
+
+
+<div class="col-md-8 col-md-offset-2 jumbotron" style="border: 2px solid rgba(0, 0, 0, 0.35); margin-top: 20px;">
+    
+    <% for(var i = 0; i < survey.questions.length; i++) { %>
+    
+        <div class="list-group">
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading"><%= survey.questions[i].name %></h4>
+                <div class="list-group">
+                    
+                    <% for(var x = 0; x < survey.questions[i].responses.length; x++) { %>
+                    
+                        <a class="list-group-item">
+                            <div class="list-group-item-text"><%= survey.questions[i].responses[x].reply %></div>
+                        </a>
+                        
+                    <% } %>
+                    
+                </div>
+            </div>
+        </div>
+    
+    <% } %>
+    
+</div> 
+<div class="clearfix"></div>
+
+
+
+
+<!-- /container -->    
+<% include ../partials/footer.ejs %>

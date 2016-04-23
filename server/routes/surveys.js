@@ -47,6 +47,7 @@ router.post('/create', function(req, res, next) {
         var survey = {
             surveyName: req.body.surveyName,
             creator: req.user.username,
+            closeDate: req.body.closeDate,
             questions: []
         };
         
@@ -73,7 +74,6 @@ router.post('/create', function(req, res, next) {
     });
 });
 
-// show the 'results' ... I guess
 router.get('/reports', function(req, res, next) {
     if(!req.user) {
         res.redirect("/survey");
@@ -82,12 +82,47 @@ router.get('/reports', function(req, res, next) {
     Survey.find({ creator : req.user.username }, function(err, surveys) {
         if(err) {
             console.log(err);
-            res.end(err);
+            res.redirect('/dashboard');
+            return;
         }
+        
+        var activeSurvey = 0, closedSurvey = 0;
+        if(surveys && surveys.length > 0) {
+            for(var i = 0; i < surveys.length; i++) {
+                if((new Date() - surveys[i].closeDate) <= 0) activeSurvey++;
+                else closedSurvey++;
+            }
+            activeSurvey = (activeSurvey / surveys.length) * 100;
+            closedSurvey = (closedSurvey / surveys.length) * 100;
+        }
+                
         res.render('survey/reports', {
             title: 'Reports - Do My Survey', 
             user: req.user,
-            surveys: surveys
+            surveys: surveys,
+            activePercent: activeSurvey,
+            closedPercent: closedSurvey
+        });
+    });
+});
+
+router.get('/reports/:id', function(req, res, next) {
+    if(!req.user) {
+        res.redirect("/survey");
+        res.end();
+    }
+    Survey.find({ creator : req.user.username, surveyName : req.params.id }, function(err, surveys) {
+        if(err || !surveys || surveys.length != 1) {
+            // console.log(err);
+            res.redirect('/survey/reports');
+            res.end();
+            return;
+        }
+                
+        res.render('survey/report-survey', {
+            title: 'Report - Do My Survey', 
+            user: req.user,
+            survey: surveys[0]
         });
     });
 });
@@ -101,6 +136,7 @@ router.get('/:name', function(req, res, next) {
         if(surveys.length != 1) {
             res.redirect("/survey");
             res.end();
+            return;
         }
         
         res.render('survey/view', {
@@ -173,13 +209,14 @@ router.get('/:name/delete', function(req, res) {
     if(!req.user) {
         res.redirect("/survey");
         res.end();
+        return;
     }
     Survey.find({ surveyName: req.params.name }, function(error, surveys) {
         if(error) {
             console.log(error);
             res.end(error);
         }
-        if(surveys.length != 1) {
+        if(surveys.length != 1 || surveys[0].creator != req.user.username) {
             res.redirect("/survey");
             res.end();
             return;
@@ -190,6 +227,34 @@ router.get('/:name/delete', function(req, res) {
                 res.end(error);
             }
             res.redirect("/survey");
+        });
+    });
+});
+
+// force close the survey
+router.get('/:name/close', function(req, res) {
+    if(!req.user) {
+        res.redirect("/survey");
+        res.end();
+        return;
+    }
+    Survey.find({ surveyName: req.params.name }, function(error, surveys) {
+        if(error) {
+            console.log(error);
+            res.end(error);
+        }
+        if(surveys.length != 1 || surveys[0].creator != req.user.username) {
+            res.redirect('/survey/reports');
+            res.end();
+            return;
+        }
+        Survey.findByIdAndUpdate(surveys[0]._id, { 
+            closeDate : new Date(Date.now - 1500) 
+        }, function (err, survey) {
+            if(err) {
+                console.log(err);
+            }
+            res.redirect('/survey/reports');
         });
     });
 });

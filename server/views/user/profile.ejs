@@ -15,16 +15,16 @@
                     <label for="username">Username: *</label>
                     <input name="username" class="form-control" value="<%= user.username %>" />
                 </fieldset>
-                <fieldset class="form-group">
+                <!--<fieldset class="form-group">
                     <label for="password">Password: *</label>
                     <input name="password" class="form-control" required />
-                  </fieldset>
+                  </fieldset>-->
                     <fieldset class="form-group text-right">
-                    <button type="submit" class="btn btn-success">Update Profile</button>
-                    <a href="/user/<%= user._id %>/delete/" title="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete your profile?');">
-                        Delete Profile
-                    </a>
-                    <button type="submit" class="btn btn-warning">Discard Changes</button>
+                        <button type="submit" class="btn btn-success">Update Profile</button>
+                        <a href="/user/<%= user._id %>/delete/" title="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete your profile?');">
+                            Delete Profile
+                        </a>
+                        <a href="/dashboard" class="btn btn-warning">Discard Changes</a>
                   </fieldset>
               </form>  
           </div>

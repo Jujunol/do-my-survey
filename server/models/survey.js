@@ -9,6 +9,10 @@ var schema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    closeDate: {
+        type: Date
+        // default: new Date().setDate(new Date() + 1000 * 60 * 60 * 24 * 7) // ms - s - m - h - d
+    },
     questions: [
         {
             name: String,
