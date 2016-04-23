@@ -19,13 +19,13 @@
       <br>
         <div class="panel panel-default">
  
-            <div class="panel-heading"><b>Recent Surveyers<b></div>
+            <div class="panel-heading"><b>Login History<b></div>
             <div class="panel-body">
                 <ul class="list-group">
                     <% for(var i = 0; i < surveys.length; i++) { %>
                         <li class="list-group-item">
-                            <a href="/survey/index/<%= surveys[i].creator %>"><%= surveys[i].creator %></a>
-                            <a href="/survey/index/<%= surveys[i].created.toDateString() %>">Active on <%= surveys[i].created.toDateString() %></a>
+                            <a href="#"><%= surveys[i].creator %></a>
+                            <a href="#">Active on <%= surveys[i].created.toDateString() %></a>
                         </li>
                     <% } %>
                 </ul>
@@ -52,7 +52,7 @@
       <tr>
          <th>Survey Title</th>
             
-         <th>Your Answers</th>
+         <th>Created On</th>
      </tr>
         <% for(var i = 0; i < surveys.length; i++) { %>
         <tr>
